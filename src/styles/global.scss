@@ -1,8 +1,13 @@
 @use './vars';
 
+@font-face {
+  font-family: 'Manrope';
+  src: url('../assets/fonts/Manrope-Regular.otf');
+}
 body {
   margin: 0;
-  font-family: Segoe UI,Helvetica Neue,Helvetica,Lucida Grande,Arial,Ubuntu,Cantarell,Fira Sans,sans-serif;
+  font-family: "Manrope", Arial,sans-serif;
+  font-weight: 400;
 }
 
 * {
@@ -25,7 +30,24 @@ body {
 }
 
 .container {
-  max-width: 600px;
-	padding: 0 20px;
+  max-width: 1200px;
+  padding: 15px;
   margin: 0 auto;
+}
+
+.select {
+  padding: 9px 20px;
+  border: 2px solid #000AFF;
+  border-radius: 28px;
+  font-family: inherit;
+  outline: none;
+  height: 48px;
+  width: 380px;
+  font-size: 24px;
+  
+  .option {
+    padding: 9px 20px;
+    height: 48px;
+
+  }
 }

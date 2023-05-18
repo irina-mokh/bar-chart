@@ -3,4 +3,9 @@ export type DataType = {
   value: number,
 };
 
-export type RangeType = 'month' | 'year' | 'half-year';
+export type RangeType = 'month' | 'year' | 'six-month';
+
+export type BarChartProps = {
+  name: string,
+  data: DataType[],
+};

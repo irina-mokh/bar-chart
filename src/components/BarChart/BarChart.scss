@@ -1,0 +1,24 @@
+.bar-chart {
+  max-width: 1075px;
+	padding: 40px;
+  margin: auto;
+  border: 1px solid rgba(0, 10, 255, 0.1);
+  border-radius: 60px;
+
+	@media (max-width
+	: 950px) {
+		padding: 20px;
+	}
+
+	&__header {
+		display: flex;
+		justify-content: space-between;
+		margin: 0 0 28px 0;
+	}
+
+	&__title {
+		font-weight: 600;
+
+	}
+
+}

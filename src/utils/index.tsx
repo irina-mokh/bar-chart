@@ -8,6 +8,7 @@ export const MS_RANGES = {
   month: {
     ms: 1000 * 60 * 60 * 24 * 30,
   },
+  //TODO: add year and 6 month
 };
 
 export const getValuesByRange = (range: RangeType, data: DataType[]) => {
@@ -36,7 +37,7 @@ export const getValuesByRange = (range: RangeType, data: DataType[]) => {
 
     result.unshift({
       date: curDate,
-      value: sum,
+      value: sum * 100, // multiply to scale mock values
     });
   }
 
