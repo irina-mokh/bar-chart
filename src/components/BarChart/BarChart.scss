@@ -1,3 +1,5 @@
+@use '../../styles/vars';
+
 .bar-chart {
   max-width: 1075px;
 	padding: 40px;
@@ -6,8 +8,9 @@
   border-radius: 60px;
 
 	@media (max-width
-	: 950px) {
+	: vars.$mediumScreen) {
 		padding: 20px;
+		border-radius: 40px;
 	}
 
 	&__header {

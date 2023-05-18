@@ -11,8 +11,10 @@ import {
 } from 'chart.js';
 import { useState } from 'react';
 import { Bar } from 'react-chartjs-2';
-import { BarChartProps, RangeType } from '../../types';
+import { BarChartProps } from '../../types';
 import { getValuesByRange } from '../../utils';
+import { Select } from '../Select';
+import { selectOptions } from '../../utils/consts';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
@@ -25,16 +27,17 @@ export const options = {
   },
   scales: {
     x: {
+			ticks: {
+				maxRotation: 0,
+				font: {
+					size: 20,
+				},
+			},
       border: {
         display: false,
       },
       grid: {
         display: false,
-      },
-      ticks: {
-        font: {
-          size: 20,
-        },
       },
     },
     y: {
@@ -44,11 +47,11 @@ export const options = {
       grid: {
         display: false,
       },
-      ticks: {
-        font: {
-          size: 20,
-        },
-      },
+			ticks: {
+				font: {
+					size: 20,
+				},
+			}
     },
   },
   plugins: {
@@ -76,7 +79,11 @@ export const options = {
 };
 
 export const BarChart = ({name, data}: BarChartProps) => {
-  const [range, setRange] = useState<RangeType>('month');
+  const [range, setRange] = useState<string>('month');
+
+	const rangeHandler = (val: string) => {
+		setRange(val);
+	};
   //TODO: handle range change for year and 6 month
 
 	// create a dataset with every step(day / month) from selected range. Sum same date values or create value: 0 for absent day/month.
@@ -86,7 +93,6 @@ export const BarChart = ({name, data}: BarChartProps) => {
     labels,
     datasets: [
       {
-        // label: '',
         data: modifiedData.map((i) => i.value),
         backgroundColor: ' #000AFF',
         borderRadius: 4,
@@ -99,12 +105,7 @@ export const BarChart = ({name, data}: BarChartProps) => {
     <section className="bar-chart">
 			<header className="bar-chart__header">
 				<h2 className="chart__name">{name}</h2>
-				<select className="select">
-					<option className="option" value="month" selected>
-					За последний месяц</option>
-					<option className="option" value="six-month">за последние 6 месяцев</option>
-					<option className="option" value="year">за последний год</option>
-				</select>
+				<Select options={selectOptions} selected={range} handler={rangeHandler}></Select>
 			</header>
       {data.length ? <Bar options={options} data={charData} /> : null}
     </section>

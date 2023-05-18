@@ -3,9 +3,17 @@ export type DataType = {
   value: number,
 };
 
-export type RangeType = 'month' | 'year' | 'six-month';
-
 export type BarChartProps = {
   name: string,
   data: DataType[],
+};
+
+type OptionType = {
+  value: string,
+  title: string,
+};
+export type SelectProps = {
+  options: Array<OptionType>,
+  selected: string,
+  handler: (val: string) => void,
 };

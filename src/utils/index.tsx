@@ -1,17 +1,11 @@
-import { DataType, RangeType } from '../types';
+import { DataType } from '../types';
+import { MS_RANGES } from './consts';
 
 function daysInMonth(month: number, year: number) {
   return new Date(year, month, 0).getDate();
 }
 
-export const MS_RANGES = {
-  month: {
-    ms: 1000 * 60 * 60 * 24 * 30,
-  },
-  //TODO: add year and 6 month
-};
-
-export const getValuesByRange = (range: RangeType, data: DataType[]) => {
+export const getValuesByRange = (range: string, data: DataType[]) => {
   const valuesFromPeriod = data.filter(
     (item: DataType) => +new Date() - +new Date(item.date) < MS_RANGES.month.ms
   );
