@@ -2,10 +2,20 @@
 
 .bar-chart {
   max-width: 1075px;
+	max-height: 556px;
 	padding: 40px;
   margin: auto;
   border: 1px solid rgba(0, 10, 255, 0.1);
   border-radius: 60px;
+	display: flex;
+	flex-direction: column;
+	
+	&__canvas {
+		width: 100%;
+		background: rgba(255, 0, 245, 0.05);
+		border-radius: 27px;
+		padding: 40px;
+	}
 
 	@media (max-width
 	: vars.$mediumScreen) {
@@ -19,9 +29,10 @@
 		margin: 0 0 28px 0;
 	}
 
-	&__title {
+	&__name {
 		font-weight: 600;
-
+		font-size: 32px;
+		line-height: 48px;
 	}
 
 }

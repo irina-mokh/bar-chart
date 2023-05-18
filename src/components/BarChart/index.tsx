@@ -8,6 +8,7 @@ import {
   Legend,
 	TooltipXAlignment,
 	TooltipYAlignment,
+	ChartOptions,
 } from 'chart.js';
 import { useState } from 'react';
 import { Bar } from 'react-chartjs-2';
@@ -18,20 +19,20 @@ import { selectOptions } from '../../utils/consts';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-export const options = {
+export const options: ChartOptions<'bar'> = {
   responsive: true,
-  layout: {
-    padding: {
-      bottom: 0,
-    },
-  },
+	aspectRatio: 2.7,
+
   scales: {
     x: {
 			ticks: {
+				color: '#000000',
 				maxRotation: 0,
 				font: {
 					size: 20,
+					
 				},
+				padding: 17,
 			},
       border: {
         display: false,
@@ -48,6 +49,9 @@ export const options = {
         display: false,
       },
 			ticks: {
+				color: '#000000',
+				padding: 12,
+				crossAlign: 'far',
 				font: {
 					size: 20,
 				},
@@ -104,10 +108,14 @@ export const BarChart = ({name, data}: BarChartProps) => {
   return (
     <section className="bar-chart">
 			<header className="bar-chart__header">
-				<h2 className="chart__name">{name}</h2>
+				<h2 className="bar-chart__name">{name}</h2>
 				<Select options={selectOptions} selected={range} handler={rangeHandler}></Select>
 			</header>
-      {data.length ? <Bar options={options} data={charData} /> : null}
+      {data.length ? 
+			<main className='bar-chart__canvas'>
+				<Bar options={options} data={charData} /> 
+			</main>
+			: null}
     </section>
   );
 };
