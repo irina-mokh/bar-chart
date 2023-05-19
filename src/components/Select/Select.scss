@@ -26,7 +26,6 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		
 	}
 
 	&__list {
@@ -54,6 +53,7 @@
 		border-right-color: transparent;
 		transform: rotate(-45deg);
 		transition: all 0.3s;
+		
 		&_open {
 			margin-top: 0px;
 			transform: rotate(135deg);

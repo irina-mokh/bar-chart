@@ -5,7 +5,7 @@ import { BarChart } from '../BarChart';
 const getData = async () => {
   const res = await fetch('https://6464e49e228bd07b353c15ce.mockapi.io/sales');
   const data = await res.json();
-  console.log('data from API:', data);
+  // console.log('data from API:', data);
   return data;
 };
 

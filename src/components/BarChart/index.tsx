@@ -12,17 +12,18 @@ import {
 } from 'chart.js';
 import { useState } from 'react';
 import { Bar } from 'react-chartjs-2';
+
 import { BarChartProps } from '../../types';
 import { getValuesByRange } from '../../utils';
-import { Select } from '../Select';
 import { selectOptions } from '../../utils/consts';
+
+import { Select } from '../Select';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 export const options: ChartOptions<'bar'> = {
   responsive: true,
 	aspectRatio: 2.7,
-
   scales: {
     x: {
 			ticks: {
@@ -101,6 +102,9 @@ export const BarChart = ({name, data}: BarChartProps) => {
         backgroundColor: ' #000AFF',
         borderRadius: 4,
         borderSkipped: false,
+				hoverBorderColor: '#000472',
+				hoverBorderWidth: 2,
+				// boxShadow: '0px 0px 8px 6px rgba(0, 10, 255, 0.15) inset -2px -2px 6px rgba(0, 2, 53, 0.7), inset 2px 2px 6px rgba(0, 2, 53, 0.7)',
       },
     ],
   };

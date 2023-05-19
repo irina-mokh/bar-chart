@@ -12,6 +12,7 @@ type OptionType = {
   value: string,
   title: string,
 };
+
 export type SelectProps = {
   options: Array<OptionType>,
   selected: string,

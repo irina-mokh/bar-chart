@@ -10,9 +10,8 @@ export const getValuesByRange = (range: string, data: DataType[]) => {
     (item: DataType) => +new Date() - +new Date(item.date) < MS_RANGES.month.ms
   );
 
-  console.log('values by period:', valuesFromPeriod);
+  // console.log('values by period:', valuesFromPeriod);
   const result: Array<DataType> = [];
-
   const today = new Date();
   const curY = today.getFullYear();
   const curM = today.getMonth();
